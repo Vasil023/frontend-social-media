@@ -1,11 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {BrowserRouter as Router} from 'react-router-dom'
+import 'materialize-css'
+import { useRoutes } from './routes';
 
 function App() {
+  const routes = useRoutes(false)
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <Router>
+    <div>
+      {routes}
     </div>
+    </Router>
   );
 }
 
