@@ -4,6 +4,7 @@ import { useRoutes } from './routes';
 import { useAuth } from './hooks/auth.hook';
 import 'materialize-css'
 import { AuthContext } from './context/AuthContext';
+import { Navbar } from './components/Navbar';
 
 function App() {
   const {token, login, logout, userId} = useAuth()
@@ -14,10 +15,11 @@ function App() {
       token, login, logout, userId, isAuthenticated 
     }}>
       <Router>
-    <div>
-      {routes}
-    </div>
-    </Router>
+        {isAuthenticated && <Navbar />}
+        <div>
+          {routes}
+        </div>
+      </Router>
     </AuthContext.Provider>
   );
 }
